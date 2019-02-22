@@ -26,3 +26,15 @@ function git_fetch {
 function git_log {
     git_proxy_cmd --no-pager log $args
 }
+
+function git_checkout {
+    git_proxy_cmd checkout $args
+}
+
+function git_branch {
+    git_proxy_cmd branch $args
+}
+
+function git_config {
+    git_proxy_cmd config $args
+}

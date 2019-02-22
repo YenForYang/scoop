@@ -27,7 +27,7 @@ if([System.Enum]::GetNames([System.Net.SecurityProtocolType]) -notcontains 'Tls1
 }
 
 # get core functions
-$core_url = 'https://raw.github.com/lukesampson/scoop/master/lib/core.ps1'
+$core_url = 'https://raw.githubusercontent.com/lukesampson/scoop/master/lib/core.ps1'
 Write-Output 'Initializing...'
 Invoke-Expression (new-object net.webclient).downloadstring($core_url)
 
@@ -46,7 +46,7 @@ Write-Output 'Downloading...'
 dl $zipurl $zipfile
 
 'Extracting...'
-unzip $zipfile "$dir\_tmp"
+extract_zip $zipfile "$dir\_tmp"
 Copy-Item "$dir\_tmp\scoop-master\*" $dir -r -force
 Remove-Item "$dir\_tmp" -r -force
 Remove-Item $zipfile
